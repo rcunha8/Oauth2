@@ -1,0 +1,21 @@
+<%- include('head'); -%>
+    <div class="jumbotron">
+      <% for(let i=0;i < listItems.length; i++) { %>
+        <lu>
+            <a>Title: </a><a><%= listItems[i].title %></a>
+            <p>Authors: </a><a><%= listItems[i].authors %></a>
+            <p>Abstract: </a><a><%= listItems[i].abstract %></a>
+            <p>Google Id: </a><a><%= listItems[i].googleId %></a>
+            <p>Created at: </a><a><%= listItems[i].createdAt %></a>
+            <p>Object id: </a><a><%= listItems[i]._id %></a>
+            <form method="POST" action="/eliminate/<%=listItems[i]._id %>">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+            <hr class="my-4">
+        </lu>
+        <% } %>
+        
+        <a class="btn btn-primary" href="/create" role="button"> Create</a>
+
+    </div>
+    <%- include('foot'); -%>
